@@ -48,4 +48,5 @@ export const FileToLanguageMap: RegistryLanguageMap = {
   requirementstxt: 'python',
   pomxml: 'java',
   buildgradle: 'java',
+  pyprojecttoml: 'python',
 };

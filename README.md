@@ -8,6 +8,7 @@ This plugin helps you explore project dependency libraries by offering insights 
 | ----------------------------- | -------------- | ----------------------------------------------------- | ------ |
 | package.json                  | JavaScript, TS | [npm](https://www.npmjs.com/)                         | ✅     |
 | requirements.txt              | Python         | [PyPI](https://pypi.org/)                             | ✅     |
+| pyproject.toml                | Python         | [PyPI](https://pypi.org/)                             | ✅     |
 | *.csproj                      | C#             | [Nuget](https://nuget.org/)                           | ✅     |
 | composer.json                 | PHP            | [Packagist](https://packagist.org/)                   | ✅     |            
 | pom.xml, build.gradle         | Java           | [Maven](https://maven.apache.org/)                    | 👩🏻‍💻     |

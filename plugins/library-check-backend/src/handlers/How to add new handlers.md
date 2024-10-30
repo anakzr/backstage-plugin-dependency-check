@@ -37,7 +37,7 @@ export class YourFileTypeHandler implements FileHandler {
 
 ```
 
-### 3. Inject the handler on `handlers/DescriptiorFileHandler` class
+### 3. Inject the handler on `handlers/DescriptorFileHandler` class
 
 Connect the handler into the reader management logic;
 

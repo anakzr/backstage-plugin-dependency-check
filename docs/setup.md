@@ -8,7 +8,7 @@
 ### Descriptor files support:
 
 Initial support for: 
-`package.json`, `composer.json`, `requirements.txt`, `.csproj` files;
+`package.json`, `composer.json`, `requirements.txt`, `.csproj`, `pyproject.toml` files;
 
 Registries used:
 - Pypi

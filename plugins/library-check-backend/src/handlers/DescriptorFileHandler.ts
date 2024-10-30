@@ -5,6 +5,7 @@ import { CsProjHandler } from './CsProjHandler';
 import { FileType, FileHandler, Libraries } from '../types';
 import { BuildGradleHandler } from './BuildGradleHandler';
 import { PomXmlHandler } from './PomXmlHandler';
+import { PyProjectTomlHandler } from './PyProjectTomlHandler';
 
 export class DescriptorFileHandler {
   private handlers: Record<FileType, FileHandler>;
@@ -17,6 +18,7 @@ export class DescriptorFileHandler {
       [FileType.CsProj]: new CsProjHandler(),
       [FileType.BuildGradle]: new BuildGradleHandler(),
       [FileType.PomXml]: new PomXmlHandler(),
+      [FileType.PyProjectToml]: new PyProjectTomlHandler(),
     };
   }
 

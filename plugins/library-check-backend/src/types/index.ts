@@ -75,6 +75,7 @@ export enum FileType {
   CsProj = 'csproj',
   PomXml = 'pomxml',
   BuildGradle = 'buildgradle',
+  PyProjectToml = 'pyprojecttoml',
 }
 
 export type Registry = {

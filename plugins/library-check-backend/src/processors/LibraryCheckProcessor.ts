@@ -88,6 +88,7 @@ export class LibraryCheckProcessor implements CatalogProcessor {
       '**/requirements.txt',
       '**/pom.xml',
       '**/build.gradle',
+      '**/pyproject.toml'
     ];
 
     // Search for files and read them
