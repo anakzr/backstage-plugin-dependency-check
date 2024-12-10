@@ -1,4 +1,3 @@
-import { UrlReader } from '@backstage/backend-common';
 import { Entity } from '@backstage/catalog-model';
 import { Config } from '@backstage/config';
 import {
@@ -9,7 +8,7 @@ import { CatalogProcessor } from '@backstage/plugin-catalog-node';
 import { Logger } from 'winston';
 import * as T from '../types';
 import { LibraryCheckService } from '../service/LibraryCheckService';
-import { DiscoveryService } from '@backstage/backend-plugin-api';
+import {DiscoveryService, UrlReaderService} from '@backstage/backend-plugin-api';
 import { semverImpact, versionToObj } from '../utils/semver';
 import { LibraryUpdateRecord } from '../types';
 
@@ -22,7 +21,7 @@ export class LibraryCheckUpdaterProcessor implements CatalogProcessor {
     config: Config,
     options: {
       logger: Logger;
-      reader: UrlReader;
+      reader: UrlReaderService;
       discoveryService: DiscoveryService;
     },
   ) {
@@ -37,7 +36,7 @@ export class LibraryCheckUpdaterProcessor implements CatalogProcessor {
   constructor(options: {
     integrations: ScmIntegrationRegistry;
     logger: Logger;
-    reader: UrlReader;
+    reader: UrlReaderService;
     discoveryService: DiscoveryService;
   }) {
     this.discoveryService = options.discoveryService;
