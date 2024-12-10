@@ -1,4 +1,3 @@
-import { UrlReader } from '@backstage/backend-common';
 import { Entity } from '@backstage/catalog-model';
 import { Config } from '@backstage/config';
 import {
@@ -14,12 +13,12 @@ import { Library, TLanguages } from '../types';
 import * as T from '../types';
 import { LibraryCheckService } from '../service/LibraryCheckService';
 import { FileToLanguageMap, RegistryConfig } from '../mappers/RegistryMapper';
-import { DiscoveryService } from '@backstage/backend-plugin-api';
+import { DiscoveryService, UrlReaderService } from '@backstage/backend-plugin-api';
 
 export class LibraryCheckProcessor implements CatalogProcessor {
   private readonly integrations: ScmIntegrationRegistry;
   private readonly logger: Logger;
-  private readonly reader: UrlReader;
+  private readonly reader: UrlReaderService;
   private readonly descriptorHandler: DescriptorFileHandler;
   private readonly libraryCheckService: LibraryCheckService;
   private readonly discoveryService: DiscoveryService;
@@ -29,7 +28,7 @@ export class LibraryCheckProcessor implements CatalogProcessor {
     options: {
       logger: Logger;
       discoveryService: DiscoveryService;
-      reader: UrlReader;
+      reader: UrlReaderService;
     },
   ) {
     const integrations = ScmIntegrations.fromConfig(config);
@@ -43,7 +42,7 @@ export class LibraryCheckProcessor implements CatalogProcessor {
   constructor(options: {
     integrations: ScmIntegrationRegistry;
     logger: Logger;
-    reader: UrlReader;
+    reader: UrlReaderService;
     discoveryService: DiscoveryService;
   }) {
     this.discoveryService = options.discoveryService;
@@ -148,7 +147,9 @@ export class LibraryCheckProcessor implements CatalogProcessor {
           const { files } = await this.reader.search(url);
 
           if (files.length !== 0) {
+
             const processedFiles = await Promise.all(
+              //@ts-ignore
               files.map(async file => {
                 try {
                   const bufferContent = await file.content();
